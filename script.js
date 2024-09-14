@@ -12,6 +12,7 @@ copyBtn.addEventListener('click', () => {
 
 async function batchTranslate() {
 
+    outputText.value = "";
     let text = inputText.value;
     let splittedText = text.split(/\r?\n|\r|\n/g);
     
