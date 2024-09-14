@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Batch Translate</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="script.js" defer></script>
 </head>
 <body>
@@ -16,7 +17,12 @@
                 <textarea class="input-text" placeholder="Enter words to translate."></textarea>
                 <textarea class="output-text" placeholder="คำแปลจะปรากฏในช่องนี้"></textarea>
             </div>
-            <button class="translate-btn">Translate EN → TH</button>
+            <div class="buttons">
+                <button class="translate-btn" title="Translate">Translate EN → TH</button>
+                <button class="copy-btn" title="Copy result to clipboard">
+                    <i class="fa fa-copy"></i>
+                </button>
+            </div>
         </div>
     </div>
 </body>

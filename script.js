@@ -1,10 +1,14 @@
 const translateBtn = document.querySelector(".translate-btn"),
 inputText = document.querySelector(".input-text"),
 outputText = document.querySelector(".output-text");
+copyBtn = document.querySelector(".copy-btn")
 
 
 translateBtn.addEventListener("click", batchTranslate);
 
+copyBtn.addEventListener('click', () => {
+    navigator.clipboard.writeText(outputText.value);
+})
 
 async function batchTranslate() {
 
@@ -14,7 +18,6 @@ async function batchTranslate() {
     try {
         outputText.placeholder = "กำลังแปล..."
         let translatedText = await fetchTranslate(splittedText);
-        console.log(translatedText);
         
         let output = "";
         translatedText.forEach(text => {
