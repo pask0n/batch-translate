@@ -13,6 +13,12 @@
         <h1>Batch Translate</h1>
         <p>Seperate the words with line breaks (Enter).<br> Please wait a little for the translation.</p>
         <div class="wrapper">
+            <form>
+                <input type="radio" id="translation_only" name="output_type" value="translation_only" checked>
+                <label for="translation_only">Translation only</label>
+                <input type="radio" id="word_and_translation" name="output_type" value="word_and_translation">
+                <label for="word_and_translation">Word and translation</label>
+            </form>
             <div class="text-input">
                 <textarea class="input-text" placeholder="Enter words to translate."></textarea>
                 <textarea class="output-text" placeholder="คำแปลจะปรากฏในช่องนี้"></textarea>

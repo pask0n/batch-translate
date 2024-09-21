@@ -1,7 +1,8 @@
 const translateBtn = document.querySelector(".translate-btn"),
 inputText = document.querySelector(".input-text"),
-outputText = document.querySelector(".output-text");
-copyBtn = document.querySelector(".copy-btn")
+outputText = document.querySelector(".output-text"),
+copyBtn = document.querySelector(".copy-btn"),
+outputTypes = document.getElementsByName("output_type")
 
 
 translateBtn.addEventListener("click", batchTranslate);
@@ -21,9 +22,16 @@ async function batchTranslate() {
         let translatedText = await fetchTranslate(splittedText);
         
         let output = "";
-        translatedText.forEach(text => {
+
+        if (getOutputType() == "translation_only") {
+            translatedText.forEach(text => {
                 output += text + "\n"
             });
+        } else {
+            for (let i = 0; i < splittedText.length; i++) {
+                output += `${splittedText[i]} = ${translatedText[i]}\n`;
+            }
+        }
 
         outputText.value = output;
         outputText.placeholder = "คำแปลจะปรากฏในช่องนี้"
@@ -49,4 +57,13 @@ async function fetchTranslate(toTranslate) {
     }
     
     return translated;
+}
+
+function getOutputType() {
+
+    for (const outputType of outputTypes) {
+        if (outputType.checked) {
+            return (outputType.value);
+        }
+    }
 }
